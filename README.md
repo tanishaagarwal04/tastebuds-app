@@ -1,1 +1,1 @@
-# tastebuds-app
+Taste Buds is an e-commerce food delivery platform that lets customers browse, order, and enjoy scrumptious meals with ease. With a seamless ordering process and reliable delivery, great food is just a click away! 🍔🚀
