@@ -78,7 +78,38 @@ const registerUser = async (req,res) => {
     //so now we have created to API to create the user
 }
 
-export {loginUser,registerUser}
+//did not use the below two apis just created for trial purpose
+// Fetch all users
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await userModel.find({}, { name: 1, email: 1 }); // Fetch only name & email
+        res.json({ success: true, data: users });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error fetching users", error: error.message });
+    }
+};
+
+
+// Fetch current logged-in user
+const getCurrentUser = async (req, res) => {
+    try {
+        const user = await userModel.findById(req.user.id, { name: 1, email: 1 }); // Fetch only name & email
+
+        if (!user) {
+            return res.json({ success: false, message: "User not found" });
+        }
+
+        res.json({ success: true, data: user });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error fetching user", error: error.message });
+    }
+};
+
+
+
+export {loginUser,registerUser,getAllUsers,getCurrentUser}
 
 
 //after creating both APIs, we have to integrate this login and sign up API with the frontend.

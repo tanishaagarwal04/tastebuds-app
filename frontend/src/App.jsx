@@ -17,7 +17,7 @@ const App = () => {
       <div className="app">
         <Navbar setShowLogin={setShowLogin}/>
         <Routes> {/*So these the different pages basically*/}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/verify" element={<Verify/>} /> {/*this page opens after the payment is completed successfully*/}
